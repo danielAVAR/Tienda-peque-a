@@ -57,6 +57,6 @@ while True:
         print("Bye lol")
         break
     else:
-        print("Opcion Invalida")
+        print("Opcion Invalida ")
         pass
 
