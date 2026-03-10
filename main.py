@@ -1,7 +1,3 @@
-import agregar 
-
-agregar_producto = agregar
-
 def menu_main():
     print("""
 ================================
@@ -15,15 +11,42 @@ def menu_main():
 =================================
 =================================
 """)
+
+def agregar_producto(productos):
+    nombre = input( "Nombre del Producto: ")
+    precio = input ("Precio del Producto: Q")
+    cantidad = int(input("Cantidad del producto: "))
+
+    data_producto = {
+        "Precio": precio,
+        "Cantidad": cantidad
+        }
     
+    productos[nombre] = data_producto
+
+
+    return productos
+
+def listar_productos (productos):
+    if not productos:
+        print("No hay productos en el inventario")
+    else:
+        print("Productos en el inventario: \n")
+        for nombre, data in productos.items():
+            print(f"Nombre: {nombre} \n Precio: Q{data['Precio']} \n Cantidad: {data['Cantidad']} \n")
+
+
+
+
+productos = {}
 
 while True:
     menu_main()
-    opc = int(input("Seleccione una Opcion"))
+    opc = int(input("Seleccione una Opcion: "))
     if opc == 1:
-        agregar_producto
+        agregar_producto(productos)
     elif opc == 2:
-        pass
+        listar_productos(productos)
     elif opc == 3:
         pass
     elif opc == 4:
